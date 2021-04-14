@@ -1,0 +1,27 @@
+<!-- This document should be updated using the helper scripts to avoid mistakes -->
+<root name="PROVENANCE">
+    <version>
+        <!-- This is an internal version for this Medical AI datasheet.  -->
+        <!-- The compiled version string is, "<scores>.<description>.<questionnaire>.<subsets>.<statistical>" -->
+        <!-- Each version number begins at 1 when a dataset is first described. -->
+        <!-- Version numbers are incremented for each change (i.e. commit) that alters the respective section. -->
+        <!-- Git commits should be tagged with the compiled version string. -->
+        <scores>1</scores>
+        <description>1</description>
+        <questionnaire>1</questionnaire>
+        <subsets>1</subsets>
+        <synthetic>1</synthetic>
+    </version>
+    <provenance>
+        <!-- The provenance describes which MAIDS template and specification were used to generate the latest version of this document. -->
+        <!-- The commit refers to the commit hash in the Git repository, whereas the tag refers to the specific version tag for the commit. -->
+        <template>
+            <commit>70198f</commit>
+            <tag>v0.2-alpha</tag>
+        </template>
+        <specification>
+            <commit>758194</commit>
+            <tag>v0.1-alpha</tag>
+        </specification>
+    </provenance>
+</root>

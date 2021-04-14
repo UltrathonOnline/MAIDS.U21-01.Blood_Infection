@@ -1,0 +1,9 @@
+<root name="DEFINITION">
+    
+    <Keyword_Questions>
+        <Keyword>What is a keyword or term used in MAIDS that you believe would be helpful to describe the keyword?</Keyword>
+        <Definition>What is the definition of the keyword?</Definition>
+        <Link>What is the link to online material further discussing of the keyword?</Link>
+    </Keyword_Questions>
+    
+    <Keywords_Dataset /></root>

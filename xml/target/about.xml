@@ -1,0 +1,248 @@
+<!-- Edit the answers below to describe your dataset -->
+<!-- Do not change questions as these are defined by the MAIDS specification -->
+<root name="ABOUT">
+    <title>
+        <question>What is the title of your dataset?</question>
+        <answer>Prediction of bloodstream infections: Blood culturing data associated to clinical metadata</answer>
+    </title>
+    <repository>
+        <question>What is the URL of the repository for this MAIDS description on Github?</question>
+        <answer>https://github.com/UltrathonOnline/MAIDS.U21-01.Blood_Infection</answer>
+    </repository>
+    <authors>
+        <question>Who are the dataset's authors?</question>
+        <answer>
+            <author_1>
+                <!-- Primary contact that must always be specified -->
+                <firstnames>Karen Leth</firstnames>
+                <lastname>Nielsen</lastname>
+                <email>karen.leth.nielsen.01@regionh.dk</email>
+            </author_1>
+            <author_2>
+                <!-- Primary contact that must always be specified -->
+                <firstnames>Frederik Boetius</firstnames>
+                <lastname>Hertz</lastname>
+                <email>frederik.boetius.hertz@regionh.dk</email>
+            </author_2>
+            <author_3>
+                <!-- Primary contact that must always be specified -->
+                <firstnames>Niels</firstnames>
+                <lastname>Frimodt-Moeller</lastname>
+                <email>Niels.frimodt-moeller@regionh.dk</email>
+            </author_3>
+            <author_4>
+                <!-- Primary contact that must always be specified -->
+                <firstnames>Steen Christian</firstnames>
+                <lastname>Rasmussen</lastname>
+                <email>steen.christian.rasmussen@regionh.dk</email>
+            </author_4>
+            <author_5>
+                <!-- Primary contact that must always be specified -->
+                <firstnames>Ruth</firstnames>
+                <lastname>Frikke-Schmidt</lastname>
+                <email>Ruth.Frikke-Schmidt@regionh.dk</email>
+            </author_5>
+            <author_6>
+                <!-- Primary contact that must always be specified -->
+                <firstnames>Jesper Qvist</firstnames>
+                <lastname>Thomassen</lastname>
+                <email>jesper.qvist.thomassen@regionh.dk</email>
+            </author_6>            
+        </answer>
+    </authors>
+    <scores>
+        <document>
+            <score>
+                <question>What is the document score, as defined by MAIDS?</question>
+                <answer>1</answer>
+            </score>
+            <comment>
+                <question>Why was this score given? Provide a full justification.</question>
+                <answer />
+            </comment>
+            <evaluator>
+                <entityType>
+                    <question>What gave the score? [algorithm / group / committee / person]</question>
+                    <answer />
+                </entityType>
+                <entityName>
+                    <question>Name of algorithm / group / committee / person who gave the score?</question>
+                    <answer />
+                </entityName>
+                <contactName>
+                    <question>Who should be contacted to query the score?</question>
+                    <answer />
+                </contactName>
+                <contactEmail>
+                    <question>What is the contact person's email address?</question>
+                    <answer />
+                </contactEmail>
+            </evaluator>
+        </document>
+        <fairness>
+            <score>
+                <question>What is the fairness score given, as defined by MAIDS?</question>
+                <answer>?</answer>
+            </score>
+            <comment>
+                <question>Why was this score given? Provide a full justification.</question>
+                <answer />
+            </comment>
+            <evaluator>
+                <entityType>
+                    <question>What gave the score? [algorithm / group / committee / person]</question>
+                    <answer />
+                </entityType>
+                <entityName>
+                    <question>Name of algorithm / group / committee / person who gave the score?</question>
+                    <answer />
+                </entityName>
+                <contactName>
+                    <question>Who should be contacted to query the score?</question>
+                    <answer />
+                </contactName>
+                <contactEmail>
+                    <question>What is the contact person's email address?</question>
+                    <answer />
+                </contactEmail>
+            </evaluator>
+        </fairness>
+        <magnitude>
+            <score>
+                <question>What is the magnitude score given, as defined by MAIDS?</question>
+                <answer>4</answer>
+            </score>
+            <comment>
+                <question>Why was this score given? Provide a full justification.</question>
+                <answer />
+            </comment>
+            <evaluator>
+                <entityType>
+                    <question>What gave the score? [algorithm / group / committee / person]</question>
+                    <answer />
+                </entityType>
+                <entityName>
+                    <question>Name of algorithm / group / committee / person who gave the score?</question>
+                    <answer />
+                </entityName>
+                <contactName>
+                    <question>Who should be contacted to query the score?</question>
+                    <answer />
+                </contactName>
+                <contactEmail>
+                    <question>What is the contact person's email address?</question>
+                    <answer />
+                </contactEmail>
+            </evaluator>
+        </magnitude>
+        <synthetic>
+            <score>
+                <question>What is the synthetic score given, as defined by MAIDS?</question>
+                <answer>E</answer>
+            </score>
+            <comment>
+                <question>Why was this score given? Provide a full justification.</question>
+                <answer />
+            </comment>
+            <evaluator>
+                <entityType>
+                    <question>What gave the score? [algorithm / group / committee / person]</question>
+                    <answer />
+                </entityType>
+                <entityName>
+                    <question>Name of algorithm / group / committee / person who gave the score?</question>
+                    <answer />
+                </entityName>
+                <contactName>
+                    <question>Who should be contacted to query the score?</question>
+                    <answer />
+                </contactName>
+                <contactEmail>
+                    <question>What is the contact person's email address?</question>
+                    <answer />
+                </contactEmail>
+            </evaluator>
+        </synthetic>
+    </scores>
+    <thematic>
+        <filename>thematic.jpg</filename>
+    </thematic>
+    <abstract>
+        <question>Please provide a brief abstract describing this dataset.</question>
+        <answer>The present dataset was created for machine learning in order to improve the prediction of bloodstream infections. The dataset combines clinical blood parameters, age, sex as well as previous admissions to blood culturing results (negative and positive) over a period of more than 10 years.</answer>
+    </abstract>
+    <usecases>
+        <question>Please provide one or more short use cases to highlight what this dataset might be used for. These should summarise the main and secondary research questions into single sentence objectives. You may also use this section to expand on possible uses not discussed in the research questions.</question>
+        <answer>
+            <usecase_1 />
+        </answer>
+    </usecases>
+    <research>
+        <main>
+            <question>Please state, in detail, the main hypothesis for which this dataset was created.</question>
+            <answer>Bloodstream infections (BSI) are a major cause of morbidity and mortality (mortality rates up to 30%) with increasing incidence. At Rigshospitalet, Copenhagen, 40,000 blood culturing flasks are sampled every year when suspecting BSI. Of these, only 10% are true positives and 10% contain contaminants, often skin flora, i.e. prediction of BSI is poor.
+                While samples are cultured for identification of pathogens, broad empirical antibiotic treatment (BEAT) is initiated, which increases risk of antimicrobial resistance and subsequent acquisition of multidrug resistant pathogens. When culturing is finalized days after sampling BEAT is changed to a narrow treatment to specifically target the identified pathogen. More precise prediction of BSI-positive patients including identification of the infecting pathogen and application of more precise treatment few hours after suspicion of BSI would be of great advantage for all patients with increased survival, less development of resistance, fewer side effects and be economically beneficial for the hospital.
+                The aim is to determine explanatory factors for prediction of BSI by employing machine learning and ultimately to apply this knowledge for developing an AI-based clinical application which can predict bloodstream infections from clinical parameters which are measured right upon admission. The present dataset contains
+                -Positive and negative blood culturing results of vira, bacteria and fungi
+                -any previous microbial culturing results up to six months prior to BSI suspicion
+                -Patient age and Sex
+                -previous admissions (departments, dates)
+                -diagnoses
+                -biochemical blood-analyses (electrolytes, glucose, creatinine, infection parameters [leukocytes, CRP, procalcitonin], eGFR and liver enzymes).
+            </answer>
+        </main>
+        <secondary>
+            <question>Please state, in detail, any other hypotheses which this dataset would be able to address.</question>
+            <answer />
+        </secondary>
+    </research>
+    <figures>
+        <question>Please entitle and provide a legend for each figure found in "./images/figures/".</question>
+        <answer>
+            <!-- Template: <figure_1><filename /><title /><legend /></figure_1> -->
+            <figure_1>
+                <filename />
+                <title />
+                <legend />
+            </figure_1>
+        </answer>
+    </figures>
+    <subsetAssociations>
+        <filename>subsets.jpg</filename>
+        <legend>
+            <question>What is the legend for the figure describing how subsets are associated to one another?</question>
+            <answer>Three subsets linked by a pseudonymized patient identifier.</answer>
+        </legend>
+    </subsetAssociations>
+    <populationSelection>
+        <rootNode>
+            <nodeid>0</nodeid> <!-- Do not change. Use nodeids as reference points. -->
+            <name />
+            <description />
+            <sources>
+                <!-- INSERT TEMPLATE SOURCES HERE  -->
+            </sources>
+        </rootNode>
+        <!-- INSERT TEMPLATE NODES HERE AND REFERENCE THEIR PARENTS -->
+    </populationSelection>
+</root>
+
+<!-- NODE TEMPLATES FOR DEFINING THE POPULATION SELECTION GRAPH 
+<node>
+    <nodeid />
+    <name />
+    <description />
+    <location />
+</node>
+
+<source>
+    <entityName />
+    <entityAddress />
+    <contactPerson />
+    <contactEmail />
+    <dataDescription />
+    <instancesContributed />
+    <beginDateCollection />
+    <endDateCollection />
+</source>
+-->
