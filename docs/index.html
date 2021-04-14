@@ -1,917 +1,276 @@
 <!DOCTYPE html>
 <html>
+ <head>
+  <title>
+   Medical AI Datasheet (MAIDS)
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="IE=EDGE" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="./css/style.css" rel="stylesheet"/>
+  <link href="./css/help.css" rel="stylesheet"/>
+  <link href="./css/lightbox.css" rel="stylesheet"/>
+  <link href="./css/slick.css" rel="stylesheet"/>
+  <link href="./css/dt.css" rel="stylesheet"/>
+  <script src="./js/social.js">
+  </script>
+  <script src="./js/lightbox-plus-jquery.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js">
+  </script>
+  <script src="./js/hbhelpers.js">
+  </script>
+  <script src="./js/hbmaids.js">
+  </script>
+  <script src="./js/slick.js">
+  </script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js">
+  </script>
+  <script src="./js/dt.js">
+  </script>
+ </head>
+ <body>
+  <div id="emptyHandle">
+  </div>
+  <script type="text/javascript">
+   var template = Handlebars.templates['maids']
 
-<head>
-    <title>
-        Medical AI Datasheet (MAIDS)
-    </title>
-    <meta charset="utf-8" />
-    <meta content="IE=EDGE" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link href="./css/style.css" rel="stylesheet" />
-    <link href="./css/help.css" rel="stylesheet" />
-    <link href="./css/lightbox.css" rel="stylesheet" />
-    <link href="./css/slick.css" rel="stylesheet" />
-    <link href="./css/dt.css" rel="stylesheet" />
-    <script src="./js/social.js">
-    </script>
-    <script src="./js/lightbox-plus-jquery.js">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js">
-    </script>
-    <script src="./js/hbhelpers.js">
-    </script>
-    <script src="./js/hbmaids.js">
-    </script>
-    <script src="./js/slick.js">
-    </script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js">
-    </script>
-    <script src="./js/dt.js">
-    </script>
-</head>
-
-<body>
-    <div id="emptyHandle">
-    </div>
-    <script type="text/javascript">
-        var template = Handlebars.templates['maids']
-
-        var filledHandle = template({
-            title: "A very interesting title indeed!",
-            repository: "https://github.com/PERSIMUNE-Health-Informatics/MAIDS-Template",
-            authors: [{
-                author: {
-                    firstnames: "John",
-                    lastname: "Doe",
-                    email: "john.doe@somedomain.com",
-                },
-            }, {
-                author: {
-                    firstnames: "Jane",
-                    lastname: "Doe",
-                    email: "jane.doe@somedomain.com",
-                },
-            }, ],
-            scores: {
-                document: {
-                    score: "1",
-                    comment: "This is a basic description of the dataset and missing the necessary statistical description to generate a decent synthetic version.",
-                    evaluator: {
-                        entityType: "person",
-                        entityName: "John Doe",
-                        contactName: "John Doe",
-                        contactEmail: "john.doe@somedomain.com",
-                    },
-                },
-                fairness: {
-                    score: "?",
-                    comment: "No committee has evaluated this dataset.",
-                    evaluator: {
-                        entityType: "None",
-                        entityName: "None",
-                        contactName: "None",
-                        contactEmail: "None",
-                    },
-                },
-                magnitude: {
-                    score: "0",
-                    comment: "This example dataset contains no data.",
-                    evaluator: {
-                        entityType: "person",
-                        entityName: "John Doe",
-                        contactName: "John Doe",
-                        contactEmail: "john.doe@somedomain.com",
-                    },
-                },
-                synthetic: {
-                    score: "E",
-                    comment: "No synthetic data or scripts to generate such data are included.",
-                    evaluator: {
-                        entityType: "person",
-                        entityName: "John Doe",
-                        contactName: "John Doe",
-                        contactEmail: "john.doe@somedomain.com",
-                    },
-                },
-            },
-            thematic: {
-                filename: "thematic.png",
-            },
-            abstract: "Abstract: This is an example MAIDS document describing an empty dataset. It has been designed for publication within the MAIDS template on github.",
-            usecases: [{
-                usecase: "An example or a short use case statement.",
-            }, {
-                usecase: "Another example.",
-            }, {
-                usecase: "Include as many use cases as you would like.",
-            }, {
-                usecase: "A good practice is to itemize the uses identified by the main research questions.",
-            }, ],
-            research: {
-                main: "This is where you should describe the main research questions for which the dataset was created to answer. Please make it as long as it needs to be and refer to the figures. The use cases above should summarize these questions succinctly.",
-                secondary: "This is where you should describe the research questions that could be answered by this dataset even if it wasn't created for this exact purpose. The use cases above should summarize these questions succinctly."
-            },
-            figures: [{
-                figure: {
-                    filename: "example1.jpg",
-                    title: "Figure 1. First example",
-                    legend: "Figure 1's legend."
-                },
-            }, {
-                figure: {
-                    filename: "example2.jpg",
-                    title: "Figure 2. Second example",
-                    legend: "Figure 2's legend."
-                },
-            }, {
-                figure: {
-                    filename: "example3.jpg",
-                    title: "Figure 3. Third example",
-                    legend: "Figure 3's legend."
-                },
-            }, {
-                figure: {
-                    filename: "example4.jpg",
-                    title: "Figure 4. Fourth example",
-                    legend: "Figure 4's legend."
-                },
-            }, {
-                figure: {
-                    filename: "example5.jpg",
-                    title: "Figure 5. Fifth example",
-                    legend: "Figure 5's legend."
-                },
-            }, {
-                figure: {
-                    filename: "example6.jpg",
-                    title: "Figure 6. Sixth example",
-                    legend: "Figure 6's legend."
-                },
-            }, ],
-            subsetAssociations: {
-                filename: "datasetassociations.jpg",
-                legend: "An example of how 3 different subsets are connected by a patient identifier. The aspect ratio is 5 to 3.5.",
-            },
-            version: {
-                scores: "1",
-                description: "1",
-                questionnaire: "1",
-                subsets: "1",
-                synthetic: "1",
-            },
-            provenance: {
-                template: {
-                    commit: "9e9c6de",
-                    tag: "v0.1-alpha",
-                },
-                specification: {
-                    commit: "7581946",
-                    tag: "v0.1-alpha",
-                },
-            },
-            categories: [{
-                category: {
-                    id: "1",
-                    name: "Motivation",
-                    code: "M",
-                    description: "The questions in this category are primarily intended to encourage dataset creators to clearly articulate their reasons for creating the dataset and to promote transparency about funding interests.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "For what purpose was the dataset created?",
-                            help: "Was there a specific task in mind? Was there a specific gap that needed to be filled? Please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Who created the dataset (e.g., which team, research group) and on behalf of which entity (e.g., company, institution, organization)?",
-                            help: "None"
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Who funded the creation of the dataset?",
-                            help: "If there is an associated grant, please provide the name of the grantor and the grant name and number."
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "2",
-                    name: "Composition",
-                    code: "C",
-                    description: "Most of these questions are intended to provide dataset consumers with the information they need to make informed decisions about using the dataset for specific tasks. The answers to some of these questions reveal information about compliance with the EU’s General Data Protection Regulation (GDPR) or comparable regulations in other jurisdictions.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "What do the instances that comprise the dataset represent (e.g., samples, images, people)?",
-                            help: "Are there multiple types of instances (e.g., samples, images, and people), interactions (e.g., nodes and edges), resolutions (e.g., genetic data, single cell expression vs. tissue expression, cell counts, different image technologies, etc.)? Please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "How many instances are there in total?",
-                            help: "Provide an exact integer value for each type mentioned in question C1."
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set?",
-                            help: "f the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (e.g., geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (e.g., an active decision to cover a more diverse range of instances, because instances were withheld or unavailable)."
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "What data does each instance consist of?",
-                            help: "“Raw” data (e.g., unprocessed text or images) or features? In either case, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "5",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is there a label, target, or outcome (e.g., mortality) associated with each instance?",
-                            help: "If so, please provide a description and indicate its actual presence within the dataset or whether it is represented by a proxy or compounded (e.g., a multi-cause event)."
-                        }
-                    }, {
-                        entry: {
-                            id: "6",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is any information missing from individual instances?",
-                            help: "If so, please provide a description, explaining why this information is missing (e.g., because it was unavailable). This does not include intentionally removed information, but might include, e.g., redacted text."
-                        }
-                    }, {
-                        entry: {
-                            id: "7",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Are relationships between individual instances made explicit (e.g., familial links, or samples derived from the same patient or same exposure)?",
-                            help: "If so, please describe how these relationships are made explicit."
-                        }
-                    }, {
-                        entry: {
-                            id: "8",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Are there recommended data splits (e.g., training, development/validation, testing)?",
-                            help: "If so, please provide a description of these splits, explaining the rationale behind them."
-                        }
-                    }, {
-                        entry: {
-                            id: "9",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Are there any errors, sources of noise, or redundancies in the dataset?",
-                            help: "If so, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "10",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g., websites, public databases, other datasets and/or private silos)?",
-                            help: "If it links to or relies on external resources, a) are there guarantees that they will exist, and remain constant, over time; b) are there official archival versions of the complete dataset (i.e., including the external resources as they existed at the time the dataset was created); c) are there any restrictions (e.g., licenses, fees) associated with any of the external resources that might apply to a future user? Please provide descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate."
-                        }
-                    }, {
-                        entry: {
-                            id: "11",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset contain data that might be considered confidential (e.g., data that is protected by legal privilege or by doctor-patient confidentiality, data that includes the content of individuals’ non-public communications)?",
-                            help: "If so, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "12",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset contain data that, if viewed directly, might be offensive, insulting, threatening, or might otherwise cause anxiety?",
-                            help: "If so, please describe why."
-                        }
-                    }, {
-                        entry: {
-                            id: "13",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset not relate to people (e.g., animals, cell lines, environment)?",
-                            help: "A short answer is sufficient. If no relation to people, you may skip the remaining questions in this section."
-                        }
-                    }, {
-                        entry: {
-                            id: "14",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset identify any subpopulations (e.g., by age, gender, etc.)?",
-                            help: "If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset."
-                        }
-                    }, {
-                        entry: {
-                            id: "15",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is it possible to identify individuals (i.e., one or more natural persons), either directly or indirectly (i.e., in combination with other data) from the dataset?",
-                            help: "If so, please describe how."
-                        }
-                    }, {
-                        entry: {
-                            id: "16",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset contain data that might be considered sensitive in any way (e.g., data that reveals racial or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)?",
-                            help: "If so, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "17",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "3",
-                    name: "Collection Process",
-                    code: "L",
-                    description: "If possible, dataset creators should read through these questions prior to any data collection to flag potential issues and then provide answers once collection is complete. In addition to the goals of the prior category, the answers to questions here may provide information that allow others to reconstruct the dataset without access to it.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "How was the data associated with each instance acquired?",
-                            help: "Was the data directly observable (e.g., raw text, instrument measurements), reported by subjects/physicians (e.g., survey responses), or indirectly inferred/derived from other data (e.g., part-of-speech tags, model-based guesses, scores, etc.)? If data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "What mechanisms or procedures were used to collect the data (e.g., hardware apparatus or sensor, manual human curation, software program, software API)?",
-                            help: "How were these mechanisms or procedures validated?"
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "If the dataset is a sample from a larger set, what was the sampling strategy (e.g., deterministic, probabilistic with specific sampling probabilities)?",
-                            help: "Please describe."
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: " Who was involved in the data collection process (e.g., students, crowdworkers, contractors) and how were they compensated (e.g., salaried, immaterial through prizes / authorship / etc) and how much (e.g., according to competitive scales mandated by [insert body or institution])?",
-                            help: "None"
-                        }
-                    }, {
-                        entry: {
-                            id: "5",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Over what timeframe was the data collected?",
-                            help: "Does this timeframe match the creation timeframe of the data associated with the instances (e.g., recent data from old biobanked samples, or recent data dump from a 5-year-old registry)? If not, please describe the time frame in which the data associated with the instances was created."
-                        }
-                    }, {
-                        entry: {
-                            id: "6",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Were any ethical review processes conducted (e.g., by an institutional review board)?",
-                            help: "If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation."
-                        }
-                    }, {
-                        entry: {
-                            id: "7",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset not relate to people (e.g., animals, cell lines, environment)?",
-                            help: "A short answer is sufficient. If no relation to people, you may skip the remaining questions in this section."
-                        }
-                    }, {
-                        entry: {
-                            id: "8",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Did you collect the data from the individuals in question directly, or obtain it via third parties or other sources (e.g., websites)?",
-                            help: "Please explain."
-                        }
-                    }, {
-                        entry: {
-                            id: "9",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Were the individuals in question notified about the data collection?",
-                            help: "If so, please describe (or show with screenshots or other information) how notice was provided, and provide a link or other access point to, or otherwise reproduce, the exact language of the notification itself."
-                        }
-                    }, {
-                        entry: {
-                            id: "10",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Did the individuals in question consent to the collection and use of their data?",
-                            help: "If so, please describe (or show with screenshots or other information) how consent was requested and provided, and provide a link or other access point to, or otherwise reproduce, the exact language to which the individuals consented."
-                        }
-                    }, {
-                        entry: {
-                            id: "11",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: " If consent was obtained, were the consenting individuals provided with a mechanism to revoke their consent in the future or for certain uses?",
-                            help: "If so, please provide a description, as well as a link or other access point to the mechanism (if appropriate)."
-                        }
-                    }, {
-                        entry: {
-                            id: "12",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Has an analysis of the potential impact of the dataset and its use on data subjects (e.g., a data protection impact analysis) been conducted?",
-                            help: "If so, please provide a description of this analysis, including the outcomes, as well as a link or other access point to any supporting documentation."
-                        }
-                    }, {
-                        entry: {
-                            id: "13",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "4",
-                    name: "Preprocessing, Cleaning, Labling",
-                    code: "P",
-                    description: "If possible, dataset creators should read through these questions prior to any preprocessing, cleaning, or labeling and then provide answers once these tasks are complete. The questions in this category are intended to provide dataset consumers with the information they need to determine whether the “raw” data has been processed in ways that are compatible with their chosen tasks.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Was any preprocessing/cleaning/labeling of the data done (e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)?",
-                            help: "If so, please provide a description. If not, you may skip the remainder of the questions in this section."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Was the “raw” data saved in addition to the preprocessed/cleaned/labeled data (e.g., to support unanticipated future uses)?",
-                            help: "If so, is it available and needs to be done to gain access? If open without restriction then please describe a means to access this “raw” data."
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is the software used to preprocess/clean/label the instances available?",
-                            help: "If so, please provide a link or other access point and describe with enough detail so that others might reproduce it. If a custom script was used will you include it within the MAIDS repository or otherwise make it available?"
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "5",
-                    name: "Uses",
-                    code: "U",
-                    description: "These questions are intended to encourage dataset creators to reflect on the tasks for which the dataset should and should not be used. By explicitly highlighting these tasks, dataset creators can help dataset consumers to make informed decisions, thereby avoiding potential risks or harm.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Has the dataset been used for any tasks already?",
-                            help: "hers determine the value of this dataset by example."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is there a repository that links to any or all papers or systems that use the dataset?",
-                            help: "If so, please provide a link or other access point. Will you compile such a list and make it available in the MAIDS repository?"
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "What (other) tasks could the dataset be used for?",
-                            help: "Please provide as much inspiration as you can. Distinguish between tasks the dataset is ideal for versus those tasks where the dataset is not entirely suited. Describe why the dataset might not be suitable "
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses?",
-                            help: "For example, is there anything that a future user might need to know to avoid uses that could result in unfair treatment of individuals or groups (e.g., stereotyping, quality of service issues) or other undesirable harms (e.g., financial harms, legal risks) If so, please provide a description. Is there anything a future user could do to mitigate these undesirable harms?"
-                        }
-                    }, {
-                        entry: {
-                            id: "5",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Are there tasks for which the dataset should not be used?",
-                            help: "If so, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "6",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "6",
-                    name: "Distribution",
-                    code: "D",
-                    description: "Dataset creators should provide answers to these questions prior to distributing the dataset either internally within the entity on behalf of which the dataset was created or externally to third parties.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Will the dataset be distributed to third parties outside of the entity (e.g., company, institution, organization) on behalf of which the dataset was created",
-                            help: "If so, please provide a description. If not, then disregard the rest of the questions."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "How will the dataset be distributed (e.g., tarball on website, API, GitHub)?",
-                            help: "Does the dataset have a digital object identifier (DOI)?"
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "When will the dataset be distributed?",
-                            help: "A cautious response is more useful than an optimistic one."
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Will the dataset be distributed under a copyright or other intellectual property (IP) license, and/or under applicable terms of use (ToU)?",
-                            help: "If so, please describe this license and/or ToU, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms or ToU, as well as any fees associated with these restrictions."
-                        }
-                    }, {
-                        entry: {
-                            id: "5",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Have any third-parties imposed IP-based or other restrictions on the data associated with the instances?",
-                            help: "If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms, as well as any fees associated with these restrictions."
-                        }
-                    }, {
-                        entry: {
-                            id: "6",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Do any export controls or other regulatory restrictions apply to the dataset or to individual instances?",
-                            help: "If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any supporting documentation."
-                        }
-                    }, {
-                        entry: {
-                            id: "7",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "7",
-                    name: "Maintenance",
-                    code: "T",
-                    description: "As with the previous category, dataset creators should provide answers to these questions prior to distributing the dataset. These questions are intended to encourage dataset creators to plan for dataset maintenance and communicate this plan with dataset consumers.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Who is supporting/hosting/maintaining the dataset?",
-                            help: "Please be as thorough as possible."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "How can the owner/curator/manager of the dataset be contacted (e.g., email address)?",
-                            help: "None"
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is there an erratum?",
-                            help: "If so, please provide a link or other access point."
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Will the dataset be updated (e.g., to correct labeling errors, add new instances, delete instances)?",
-                            help: "If so, please describe how often, by whom, and how updates will be communicated to users (e.g., mailing list, GitHub)?"
-                        }
-                    }, {
-                        entry: {
-                            id: "5",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "If the dataset relates to people, are there applicable limits on the retention of the data associated with the instances (e.g., were individuals in question told that their data would be retained for a fixed period of time and then deleted)?",
-                            help: "If so, please describe these limits and explain how they will be enforced."
-                        }
-                    }, {
-                        entry: {
-                            id: "6",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Will older versions of the dataset continue to be supported/hosted/maintained?",
-                            help: "If so, please describe how. If not, please describe how its obsolescence will be communicated to users."
-                        }
-                    }, {
-                        entry: {
-                            id: "7",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "If others want to extend/augment/build on/contribute to the dataset, is there a mechanism for them to do so?",
-                            help: "If so, please provide a description. Will these contributions be validated/verified? If so, please describe how. If not, why not? Is there a process for communicating/distributing these contributions to other users? If so, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "8",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, ],
-            definitions: [{
-                definition: {
-                    id: "1",
-                    keyword: "A keyword",
-                    definition: "It means this.",
-                    link: "https://link.to.reference/material"
-                }
-            }, {
-                definition: {
-                    id: "2",
-                    keyword: "Another keyword",
-                    definition: "Another definition without an online reference.",
-                    link: ""
-                }
-            }, ],
-            subsets: [{
-                subset: {
-                    id: "1",
-                    name: "Example subset of tabular data",
-                    updated: "2021/03/01",
-                    modality: "TABULAR",
-                    format: "CSV",
-                    size: "0",
-                    featureCount: "1",
-                    parentid: "None",
-                    covmat: "No covariance matrix or any other similar data provided.",
-                    modsys: "No models, model systems, or any other statistical description provided.",
-                    purpose: "To provide an example specification for a tabular CSV file.",
-                    link: "",
-                    features: [{
-                        feature: {
-                            id: "1",
-                            date: "2021/03/01",
-                            name: "PID",
-                            values: "1..inf; int",
-                            meaningNaNullNone: "Not possible",
-                            meaningZero: "Not possible",
-                            meaningBlankVoid: "Not possible",
-                            sparsity: "None",
-                            mean: "None",
-                            std: "None",
-                            modality: "None",
-                            median: "None",
-                            iqr: "None",
-                            parents: "None",
-                            unit: "None",
-                            definition: "Pseudononymized patient identifier.",
-                            purpose: "Act as the primary identifier for joining subsets.",
-                            encoding: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                subset: {
-                    id: "2",
-                    name: "Example of unstructured data in files",
-                    updated: "2021/03/01",
-                    modality: "FILES",
-                    format: "something",
-                    size: "0",
-                    featureCount: "0",
-                    parentid: "None",
-                    covmat: "No covariance matrix or any other similar data provided.",
-                    modsys: "No models, model systems, or any other statistical description provided.",
-                    purpose: "To provide an example specification for a folder containing many unstructured data files. Since there is no structure, no features are listed below. If there is a manifest, describe it within another subset and reference this subset as its parent.",
-                    link: "",
-                    features: []
-                }
-            }, {
-                subset: {
-                    id: "3",
-                    name: "A manifest of data files and their meta-data",
-                    updated: "2021/03/01",
-                    modality: "TABULAR",
-                    format: "XML",
-                    size: "0",
-                    featureCount: "3",
-                    parentid: "2",
-                    covmat: "Irrelevant",
-                    modsys: "Irrelevant",
-                    purpose: "To provide an example of how meta-data on a folder of files could be specified.",
-                    link: "",
-                    features: [{
-                        feature: {
-                            id: "1",
-                            date: "2021/03/01",
-                            name: "PID",
-                            values: "1..inf; int",
-                            meaningNaNullNone: "Not possible",
-                            meaningZero: "Not possible",
-                            meaningBlankVoid: "Not possible",
-                            sparsity: "None",
-                            mean: "None",
-                            std: "None",
-                            modality: "None",
-                            median: "None",
-                            iqr: "None",
-                            parents: "None",
-                            unit: "None",
-                            definition: "Pseudononymized patient identifier.",
-                            purpose: "Act as the primary identifier for joining subsets.",
-                            encoding: "None"
-                        }
-                    }, {
-                        feature: {
-                            id: "2",
-                            date: "2021/03/01",
-                            name: "Filename",
-                            values: "a-zA-Z; str",
-                            meaningNaNullNone: "NA",
-                            meaningZero: "NA",
-                            meaningBlankVoid: "NA",
-                            sparsity: "NA",
-                            mean: "NA",
-                            std: "NA",
-                            modality: "NA",
-                            median: "NA",
-                            iqr: "NA",
-                            parents: "NA",
-                            unit: "None",
-                            definition: "The filename",
-                            purpose: "Provide name of file",
-                            encoding: "NA"
-                        }
-                    }, {
-                        feature: {
-                            id: "3",
-                            date: "2021/03/01",
-                            name: "Some information",
-                            values: "1..inf; str",
-                            meaningNaNullNone: "NA",
-                            meaningZero: "NA",
-                            meaningBlankVoid: "NA",
-                            sparsity: "NA",
-                            mean: "NA",
-                            std: "NA",
-                            modality: "NA",
-                            median: "NA",
-                            iqr: "NA",
-                            parents: "NA",
-                            unit: "None",
-                            definition: "Some extra information unique to each file",
-                            purpose: "Why this information exists",
-                            encoding: "NA"
-                        }
-                    }, ]
-                }
-            }, ]
-        })
+        var filledHandle = template({ title:"Prediction of bloodstream infections: Blood culturing data associated to clinical metadata",repository:"https://github.com/UltrathonOnline/MAIDS.U21-01.Blood_Infection",authors:[{author: {firstnames: "Karen Leth", lastname: "Nielsen", email: "karen.leth.nielsen.01@regionh.dk",},},{author: {firstnames: "Frederik Boetius", lastname: "Hertz", email: "frederik.boetius.hertz@regionh.dk",},},{author: {firstnames: "Niels", lastname: "Frimodt-Moeller", email: "Niels.frimodt-moeller@regionh.dk",},},{author: {firstnames: "Steen Christian", lastname: "Rasmussen", email: "steen.christian.rasmussen@regionh.dk",},},{author: {firstnames: "Ruth", lastname: "Frikke-Schmidt", email: "Ruth.Frikke-Schmidt@regionh.dk",},},{author: {firstnames: "Jesper Qvist", lastname: "Thomassen", email: "jesper.qvist.thomassen@regionh.dk",},},],scores:{ document: {score:"1",comment:"None",evaluator:{entityType:"None",entityName:"None",contactName:"None",contactEmail:"None",},},fairness: {score:"?",comment:"None",evaluator:{entityType:"None",entityName:"None",contactName:"None",contactEmail:"None",},},magnitude: {score:"4",comment:"None",evaluator:{entityType:"None",entityName:"None",contactName:"None",contactEmail:"None",},},synthetic: {score:"E",comment:"None",evaluator:{entityType:"None",entityName:"None",contactName:"None",contactEmail:"None",},}, },thematic:{ filename:"thematic.jpg", },abstract:"The present dataset was created for machine learning in order to improve the prediction of bloodstream infections. The dataset combines clinical blood parameters, age, sex as well as previous admissions to blood culturing results (negative and positive) over a period of more than 10 years.",usecases:[{usecase: "None",},],research:{main:"Bloodstream infections (BSI) are a major cause of morbidity and mortality (mortality rates up to 30%) with increasing incidence. At Rigshospitalet, Copenhagen, 40,000 blood culturing flasks are sampled every year when suspecting BSI. Of these, only 10% are true positives and 10% contain contaminants, often skin flora, i.e. prediction of BSI is poor. While samples are cultured for identification of pathogens, broad empirical antibiotic treatment (BEAT) is initiated, which increases risk of antimicrobial resistance and subsequent acquisition of multidrug resistant pathogens. When culturing is finalized days after sampling BEAT is changed to a narrow treatment to specifically target the identified pathogen. More precise prediction of BSI-positive patients including identification of the infecting pathogen and application of more precise treatment few hours after suspicion of BSI would be of great advantage for all patients with increased survival, less development of resistance, fewer side effects and be economically beneficial for the hospital. The aim is to determine explanatory factors for prediction of BSI by employing machine learning and ultimately to apply this knowledge for developing an AI-based clinical application which can predict bloodstream infections from clinical parameters which are measured right upon admission. The present dataset contains: -Positive and negative blood culturing results of vira, bacteria and fungi; -Patient age and Sex; -previous admissions (departments, dates); -diagnoses; -biochemical blood-analyses (electrolytes, glucose, creatinine, infection parameters [leukocytes, CRP, procalcitonin], eGFR and liver enzymes).",secondary:"None"},figures:[],subsetAssociations:{filename: "subsets.jpg",legend:"Three subsets linked by a pseudonymized patient identifier.",},version: { scores: "1", description: "1", questionnaire: "1", subsets: "1", synthetic: "1", },provenance: { template: { commit: "70198f", tag: "v0.2-alpha", }, specification: { commit: "758194", tag: "v0.1-alpha", }, },categories:[{category:{
+id:"1",
+name:"Motivation",
+code:"M",
+description:"The questions in this category are primarily intended to encourage dataset creators to clearly articulate their reasons for creating the dataset and to promote transparency about funding interests.",
+entries:[
+{entry: {id:"1", answer:"The present dataset was created for machine learning in order to improve the prediction of bloodstream infections. The dataset combines clinical blood parameters, age, sex as well as previous admissions to blood culturing results (negative and positive) and resistance profile of the infecting pathogen over a period of more than 10 years. ", by:"", on:"", question:"For what purpose was the dataset created?", help:"Was there a specific task in mind? Was there a specific gap that needed to be filled? Please provide a description."}},
+{entry: {id:"2", answer:"Dept. of Clinical Microbiology, Rigshospitalet created the dataset In collaboration with dept. of clinical Biochemistry,  Rigshospitalet ", by:"", on:"", question:"Who created the dataset (e.g., which team, research group) and on behalf of which entity (e.g., company, institution, organization)?", help:"None"}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"Who funded the creation of the dataset?", help:"If there is an associated grant, please provide the name of the grantor and the grant name and number."}},
+{entry: {id:"4", answer:"Name of person(s) answering questions: Karen Leth Nielsen Karen.leth.nielsen.01@regionh.dk; Frederik Boëtius Hertz Frederik.boetius.hertz@regionh.dk; Karen Leth Nielsen Karen.Leth.Nielsen.01@regionh.dk ", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"2",
+name:"Composition",
+code:"C",
+description:"Most of these questions are intended to provide dataset consumers with the information they need to make informed decisions about using the dataset for specific tasks. The answers to some of these questions reveal information about compliance with the EU’s General Data Protection Regulation (GDPR) or comparable regulations in other jurisdictions.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"What do the instances that comprise the dataset represent (e.g., samples, images, people)?", help:"Are there multiple types of instances (e.g., samples, images, and people), interactions (e.g., nodes and edges), resolutions (e.g., genetic data, single cell expression vs. tissue expression, cell counts, different image technologies, etc.)? Please provide a description."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"How many instances are there in total?", help:"Provide an exact integer value for each type mentioned in question C1."}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set?", help:"f the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (e.g., geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (e.g., an active decision to cover a more diverse range of instances, because instances were withheld or unavailable)."}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"What data does each instance consist of?", help:"“Raw” data (e.g., unprocessed text or images) or features? In either case, please provide a description."}},
+{entry: {id:"5", answer:"None", by:"", on:"", question:"Is there a label, target, or outcome (e.g., mortality) associated with each instance?", help:"If so, please provide a description and indicate its actual presence within the dataset or whether it is represented by a proxy or compounded (e.g., a multi-cause event)."}},
+{entry: {id:"6", answer:"None", by:"", on:"", question:"Is any information missing from individual instances?", help:"If so, please provide a description, explaining why this information is missing (e.g., because it was unavailable). This does not include intentionally removed information, but might include, e.g., redacted text."}},
+{entry: {id:"7", answer:"None", by:"", on:"", question:"Are relationships between individual instances made explicit (e.g., familial links, or samples derived from the same patient or same exposure)?", help:"If so, please describe how these relationships are made explicit."}},
+{entry: {id:"8", answer:"None", by:"", on:"", question:"Are there recommended data splits (e.g., training, development/validation, testing)?", help:"If so, please provide a description of these splits, explaining the rationale behind them."}},
+{entry: {id:"9", answer:"None", by:"", on:"", question:"Are there any errors, sources of noise, or redundancies in the dataset?", help:"If so, please provide a description."}},
+{entry: {id:"10", answer:"None", by:"", on:"", question:"Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g., websites, public databases, other datasets and/or private silos)?", help:"If it links to or relies on external resources, a) are there guarantees that they will exist, and remain constant, over time; b) are there official archival versions of the complete dataset (i.e., including the external resources as they existed at the time the dataset was created); c) are there any restrictions (e.g., licenses, fees) associated with any of the external resources that might apply to a future user? Please provide descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate."}},
+{entry: {id:"11", answer:"None", by:"", on:"", question:"Does the dataset contain data that might be considered confidential (e.g., data that is protected by legal privilege or by doctor-patient confidentiality, data that includes the content of individuals’ non-public communications)?", help:"If so, please provide a description."}},
+{entry: {id:"12", answer:"None", by:"", on:"", question:"Does the dataset contain data that, if viewed directly, might be offensive, insulting, threatening, or might otherwise cause anxiety?", help:"If so, please describe why."}},
+{entry: {id:"13", answer:"None", by:"", on:"", question:"Does the dataset not relate to people (e.g., animals, cell lines, environment)?", help:"A short answer is sufficient. If no relation to people, you may skip the remaining questions in this section."}},
+{entry: {id:"14", answer:"None", by:"", on:"", question:"Does the dataset identify any subpopulations (e.g., by age, gender, etc.)?", help:"If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset."}},
+{entry: {id:"15", answer:"None", by:"", on:"", question:"Is it possible to identify individuals (i.e., one or more natural persons), either directly or indirectly (i.e., in combination with other data) from the dataset?", help:"If so, please describe how."}},
+{entry: {id:"16", answer:"None", by:"", on:"", question:"Does the dataset contain data that might be considered sensitive in any way (e.g., data that reveals racial or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)?", help:"If so, please provide a description."}},
+{entry: {id:"17", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"3",
+name:"Collection Process",
+code:"L",
+description:"If possible, dataset creators should read through these questions prior to any data collection to flag potential issues and then provide answers once collection is complete. In addition to the goals of the prior category, the answers to questions here may provide information that allow others to reconstruct the dataset without access to it.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"How was the data associated with each instance acquired?", help:"Was the data directly observable (e.g., raw text, instrument measurements), reported by subjects/physicians (e.g., survey responses), or indirectly inferred/derived from other data (e.g., part-of-speech tags, model-based guesses, scores, etc.)? If data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"What mechanisms or procedures were used to collect the data (e.g., hardware apparatus or sensor, manual human curation, software program, software API)?", help:"How were these mechanisms or procedures validated?"}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"If the dataset is a sample from a larger set, what was the sampling strategy (e.g., deterministic, probabilistic with specific sampling probabilities)?", help:"Please describe."}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:" Who was involved in the data collection process (e.g., students, crowdworkers, contractors) and how were they compensated (e.g., salaried, immaterial through prizes / authorship / etc) and how much (e.g., according to competitive scales mandated by [insert body or institution])?", help:"None"}},
+{entry: {id:"5", answer:"None", by:"", on:"", question:"Over what timeframe was the data collected?", help:"Does this timeframe match the creation timeframe of the data associated with the instances (e.g., recent data from old biobanked samples, or recent data dump from a 5-year-old registry)? If not, please describe the time frame in which the data associated with the instances was created."}},
+{entry: {id:"6", answer:"None", by:"", on:"", question:"Were any ethical review processes conducted (e.g., by an institutional review board)?", help:"If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation."}},
+{entry: {id:"7", answer:"None", by:"", on:"", question:"Does the dataset not relate to people (e.g., animals, cell lines, environment)?", help:"A short answer is sufficient. If no relation to people, you may skip the remaining questions in this section."}},
+{entry: {id:"8", answer:"None", by:"", on:"", question:"Did you collect the data from the individuals in question directly, or obtain it via third parties or other sources (e.g., websites)?", help:"Please explain."}},
+{entry: {id:"9", answer:"None", by:"", on:"", question:"Were the individuals in question notified about the data collection?", help:"If so, please describe (or show with screenshots or other information) how notice was provided, and provide a link or other access point to, or otherwise reproduce, the exact language of the notification itself."}},
+{entry: {id:"10", answer:"None", by:"", on:"", question:"Did the individuals in question consent to the collection and use of their data?", help:"If so, please describe (or show with screenshots or other information) how consent was requested and provided, and provide a link or other access point to, or otherwise reproduce, the exact language to which the individuals consented."}},
+{entry: {id:"11", answer:"None", by:"", on:"", question:" If consent was obtained, were the consenting individuals provided with a mechanism to revoke their consent in the future or for certain uses?", help:"If so, please provide a description, as well as a link or other access point to the mechanism (if appropriate)."}},
+{entry: {id:"12", answer:"None", by:"", on:"", question:"Has an analysis of the potential impact of the dataset and its use on data subjects (e.g., a data protection impact analysis) been conducted?", help:"If so, please provide a description of this analysis, including the outcomes, as well as a link or other access point to any supporting documentation."}},
+{entry: {id:"13", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"4",
+name:"Preprocessing, Cleaning, Labling",
+code:"P",
+description:"If possible, dataset creators should read through these questions prior to any preprocessing, cleaning, or labeling and then provide answers once these tasks are complete. The questions in this category are intended to provide dataset consumers with the information they need to determine whether the “raw” data has been processed in ways that are compatible with their chosen tasks.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"Was any preprocessing/cleaning/labeling of the data done (e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)?", help:"If so, please provide a description. If not, you may skip the remainder of the questions in this section."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"Was the “raw” data saved in addition to the preprocessed/cleaned/labeled data (e.g., to support unanticipated future uses)?", help:"If so, is it available and needs to be done to gain access? If open without restriction then please describe a means to access this “raw” data."}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"Is the software used to preprocess/clean/label the instances available?", help:"If so, please provide a link or other access point and describe with enough detail so that others might reproduce it. If a custom script was used will you include it within the MAIDS repository or otherwise make it available?"}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"5",
+name:"Uses",
+code:"U",
+description:"These questions are intended to encourage dataset creators to reflect on the tasks for which the dataset should and should not be used. By explicitly highlighting these tasks, dataset creators can help dataset consumers to make informed decisions, thereby avoiding potential risks or harm.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"Has the dataset been used for any tasks already?", help:"hers determine the value of this dataset by example."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"Is there a repository that links to any or all papers or systems that use the dataset?", help:"If so, please provide a link or other access point. Will you compile such a list and make it available in the MAIDS repository?"}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"What (other) tasks could the dataset be used for?", help:"Please provide as much inspiration as you can. Distinguish between tasks the dataset is ideal for versus those tasks where the dataset is not entirely suited. Describe why the dataset might not be suitable "}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses?", help:"For example, is there anything that a future user might need to know to avoid uses that could result in unfair treatment of individuals or groups (e.g., stereotyping, quality of service issues) or other undesirable harms (e.g., financial harms, legal risks) If so, please provide a description. Is there anything a future user could do to mitigate these undesirable harms?"}},
+{entry: {id:"5", answer:"None", by:"", on:"", question:"Are there tasks for which the dataset should not be used?", help:"If so, please provide a description."}},
+{entry: {id:"6", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"6",
+name:"Distribution",
+code:"D",
+description:"Dataset creators should provide answers to these questions prior to distributing the dataset either internally within the entity on behalf of which the dataset was created or externally to third parties.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"Will the dataset be distributed to third parties outside of the entity (e.g., company, institution, organization) on behalf of which the dataset was created", help:"If so, please provide a description. If not, then disregard the rest of the questions."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"How will the dataset be distributed (e.g., tarball on website, API, GitHub)?", help:"Does the dataset have a digital object identifier (DOI)?"}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"When will the dataset be distributed?", help:"A cautious response is more useful than an optimistic one."}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"Will the dataset be distributed under a copyright or other intellectual property (IP) license, and/or under applicable terms of use (ToU)?", help:"If so, please describe this license and/or ToU, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms or ToU, as well as any fees associated with these restrictions."}},
+{entry: {id:"5", answer:"None", by:"", on:"", question:"Have any third-parties imposed IP-based or other restrictions on the data associated with the instances?", help:"If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms, as well as any fees associated with these restrictions."}},
+{entry: {id:"6", answer:"None", by:"", on:"", question:"Do any export controls or other regulatory restrictions apply to the dataset or to individual instances?", help:"If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any supporting documentation."}},
+{entry: {id:"7", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"7",
+name:"Maintenance",
+code:"T",
+description:"As with the previous category, dataset creators should provide answers to these questions prior to distributing the dataset. These questions are intended to encourage dataset creators to plan for dataset maintenance and communicate this plan with dataset consumers.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"Who is supporting/hosting/maintaining the dataset?", help:"Please be as thorough as possible."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"How can the owner/curator/manager of the dataset be contacted (e.g., email address)?", help:"None"}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"Is there an erratum?", help:"If so, please provide a link or other access point."}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"Will the dataset be updated (e.g., to correct labeling errors, add new instances, delete instances)?", help:"If so, please describe how often, by whom, and how updates will be communicated to users (e.g., mailing list, GitHub)?"}},
+{entry: {id:"5", answer:"None", by:"", on:"", question:"If the dataset relates to people, are there applicable limits on the retention of the data associated with the instances (e.g., were individuals in question told that their data would be retained for a fixed period of time and then deleted)?", help:"If so, please describe these limits and explain how they will be enforced."}},
+{entry: {id:"6", answer:"None", by:"", on:"", question:"Will older versions of the dataset continue to be supported/hosted/maintained?", help:"If so, please describe how. If not, please describe how its obsolescence will be communicated to users."}},
+{entry: {id:"7", answer:"None", by:"", on:"", question:"If others want to extend/augment/build on/contribute to the dataset, is there a mechanism for them to do so?", help:"If so, please provide a description. Will these contributions be validated/verified? If so, please describe how. If not, why not? Is there a process for communicating/distributing these contributions to other users? If so, please provide a description."}},
+{entry: {id:"8", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+],definitions:[],subsets:[{subset: {
+id:"1",
+name:"MADS_data",
+updated:"None",
+modality:"TABULAR",
+format:"CSV",
+size:"None",
+featureCount:"10",
+parentid:"0",
+covmat:"None",
+modsys:"None",
+purpose:"The positive/negative blood culturing results are essentieal for the prediction of blood stream infections",
+link:"",
+features:[
+{feature: {id:"1",date:"MADS_data",name:"pID",values:"0..inf; integer",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"pseudonymised identifier",purpose:"None",encoding:"None"}},
+{feature: {id:"2",date:"MADS_data",name:"sex",values:"M/K",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded or lost.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"gender",purpose:"Gender could be associated to BSI",encoding:"None"}},
+{feature: {id:"3",date:"MADS_data",name:"age",values:"positive number with decimals",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"Zero years since birth have passed.",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"years",definition:"age when blood culturing was requested",purpose:"Age could be associated to BSI",encoding:"None"}},
+{feature: {id:"4",date:"MADS_data",name:"sender",values:"text, example, 2124C1",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"No zeros",meaningBlankVoid:"Not recorded or lost.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Department who requested the sampling",purpose:"Risk of BSI could be associated to department of admission",encoding:"None"}},
+{feature: {id:"5",date:"MADS_data",name:"date_received",values:"date, format: 16-06-2019",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Date the sample was received at KMA",purpose:"This info is used to combine the datasets so relevant blood values are mapped to the relevant blood culturing sample",encoding:"None"}},
+{feature: {id:"6",date:"MADS_data",name:"date_answered",values:"date, format: 16-06-2019",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"No zeros",meaningBlankVoid:"Not recorded or lost.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Date the sample was answered at KMA",purpose:"This info is used to combine the datasets so relevant blood values are mapped to the relevant blood culturing sample",encoding:"None"}},
+{feature: {id:"7",date:"MADS_data",name:"sample_type",values:"text, list of samples",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Type of sample",purpose:"Could be correlated to how good the prediction is",encoding:"None"}},
+{feature: {id:"8",date:"MADS_data",name:"sample_anatomi",values:"text",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"No zeros",meaningBlankVoid:"Not recorded or lost.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Additional information on sampling, e.g. how or shere the blood sample was taken anatomically",purpose:"Could be correlated to how good the prediction is",encoding:"None"}},
+{feature: {id:"9",date:"MADS_data",name:"bacteria",values:"text, microbial species or family, Ingen vækst",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"zero means no bacteria/fungi detected",meaningBlankVoid:"Not recorded or lost.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Which, if any, microbe was detected in the sample",purpose:"The species is highly correlated to severity of infection",encoding:"encoded"}},
+{feature: {id:"10",date:"MADS_data",name:"bacteria_amount",values:"1/2, 2/2, 4/5, 1/5, +, ++, +++, 100000, 10000, >100000",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"No zeros",meaningBlankVoid:"Not recorded or lost.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"proportion",definition:"positive flasks of total number of flasks",purpose:"This parameter in combination with the identified species could indicate severity of infection, although this is pooprly described to date.",encoding:"None"}},
+]}},
+{subset: {
+id:"2",
+name:"admission_data",
+updated:"None",
+modality:"TABULAR",
+format:"CSV",
+size:"None",
+featureCount:"4",
+parentid:"0",
+covmat:"None",
+modsys:"None",
+purpose:"This data informs us of when the patient was admitted and is relevant for filtering the clinical blood values to only iclude the ones relavant for the BSI. Additionally, previous admissions can be predictive for BSI development",
+link:"",
+features:[
+{feature: {id:"11",date:"admission_data",name:"admission_department",values:"1301XXX, where X represents number or letters",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Admission",purpose:"could be correlated to BSI risk and focus of infection",encoding:"encoded"}},
+{feature: {id:"12",date:"admission_data",name:"admission_start_date",values:"date, format: 30JAN2019",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"admission start date",purpose:"Illustrates previous and current admissions and duration of admission",encoding:"None"}},
+{feature: {id:"13",date:"admission_data",name:"admission_end_date",values:"date, format: 30JAN2019",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"admission end date",purpose:"Illustrates previous and current admissions and duration of admission",encoding:"None"}},
+{feature: {id:"14",date:"admission_data",name:"ICD10_diagnose_codes",values:"D followed by 3-6 numbers/letters: DXXXXXX",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"diagnose codes",purpose:"previous and current disease which could predict risk of bacteriaemia",encoding:"encoded"}},
+]}},
+{subset: {
+id:"3",
+name:"labka_blood_parameters",
+updated:"None",
+modality:"TABULAR",
+format:"CSV",
+size:"None",
+featureCount:"39",
+parentid:"0",
+covmat:"None",
+modsys:"None",
+purpose:"The clinical blood values are important for the prediction of BSI",
+link:"",
+features:[
+{feature: {id:"15",date:"labka_blood_parameters",name:"CRP",values:"CRP positive number or <1",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mg/L",definition:"concentration of CRP in blood",purpose:"central indicator of immune response",encoding:"None"}},
+{feature: {id:"16",date:"labka_blood_parameters",name:"LEU",values:"positive number with decimals or <0.01",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"× 109/L",definition:"number of leukocyttes in blood",purpose:"central indicator of immune response",encoding:"None"}},
+{feature: {id:"17",date:"labka_blood_parameters",name:"PROCAL",values:"positive number with decimals or <0.06",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"µg/L",definition:"procalcitonin concentration in blood",purpose:"marker of inflamation",encoding:"None"}},
+{feature: {id:"18",date:"labka_blood_parameters",name:"HB",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"haemoglobin concentration in blood",purpose:"indicator of bonemarrow function and chronic disease",encoding:"None"}},
+{feature: {id:"19",date:"labka_blood_parameters",name:"ERY",values:"positive number or <0.09",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"× 109/L",definition:"number of erytrocytes in blood",purpose:"indicator of bonemarrow function and chronic disease",encoding:"None"}},
+{feature: {id:"20",date:"labka_blood_parameters",name:"LYMFO",values:"positive number ",meaningNaNullNone:"Not possible in format.",meaningZero:"Zero means no lymfocytes measured",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"× 109/L",definition:"number of lymfocytes in blood",purpose:"immuneresponse therefore important",encoding:"None"}},
+{feature: {id:"21",date:"labka_blood_parameters",name:"HAPTO",values:"positive number with decimals or <0.1",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"g/L",definition:"concentration of haptoglobin in blood",purpose:"indicator of inflammation",encoding:"None"}},
+{feature: {id:"22",date:"labka_blood_parameters",name:"K",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of kalium in blood",purpose:"indicator of kidneyfunction and infection",encoding:"None"}},
+{feature: {id:"23",date:"labka_blood_parameters",name:"None",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of natrium in blood",purpose:"indicator of kidneyfunction and infection",encoding:"None"}},
+{feature: {id:"24",date:"labka_blood_parameters",name:"eGFR",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mL/min",definition:"estimated glomerular filtration rate",purpose:"indicator of kidney function",encoding:"None"}},
+{feature: {id:"25",date:"labka_blood_parameters",name:"CAI",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of ionized calcium",purpose:"indicator of systemic inflammation",encoding:"None"}},
+{feature: {id:"26",date:"labka_blood_parameters",name:"CL",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of chloride in blood",purpose:"indicator of systemic inflammation",encoding:"None"}},
+{feature: {id:"27",date:"labka_blood_parameters",name:"NEUTRO",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"Zero means no netrofilocytes measured",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"× 109/L",definition:"number of neutrofils in blood",purpose:"indicator of viral and bacterial infection",encoding:"None"}},
+{feature: {id:"28",date:"labka_blood_parameters",name:"THROM",values:"positive number or <3",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"× 109/L",definition:"number of trombocytes in blood",purpose:"marker of inflamation",encoding:"None"}},
+{feature: {id:"29",date:"labka_blood_parameters",name:"GLU",values:"positive number with decimals or <0.11",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of glukose in blood",purpose:"indicator of general health",encoding:"None"}},
+{feature: {id:"30",date:"labka_blood_parameters",name:"BASO",values:"positive number ",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"× 109/L",definition:"number of basofilocytes in blood",purpose:"infection parameter",encoding:"None"}},
+{feature: {id:"31",date:"labka_blood_parameters",name:"EOS",values:"positive number ",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"× 109/L",definition:"number of eosinofilocytes in blood",purpose:"infection parameter",encoding:"None"}},
+{feature: {id:"32",date:"labka_blood_parameters",name:"MONO",values:"positive number ",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"× 109/L",definition:"number of monocytes in blood",purpose:"infection parameter",encoding:"None"}},
+{feature: {id:"33",date:"labka_blood_parameters",name:"JERN",values:"positive number with decimals OR <1",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"µmol/L",definition:"concentration of free iron in blood",purpose:"illustrator of the general blod status",encoding:"None"}},
+{feature: {id:"34",date:"labka_blood_parameters",name:"FERRITIN",values:"positive number with decimals OR <2",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"µg/L",definition:"ferritin concentration in blood",purpose:"illustrator of the general blod status",encoding:"None"}},
+{feature: {id:"35",date:"labka_blood_parameters",name:"TRANS",values:"positive number with decimals OR <0.1",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"g/L",definition:"transferin concentration in blood",purpose:"illustrator of the general blod status",encoding:"None"}},
+{feature: {id:"36",date:"labka_blood_parameters",name:"CA ",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of free calcium in blood",purpose:"indicator of general health of the patient and comorbidities. Often Ca is low in critically ill patients",encoding:"None"}},
+{feature: {id:"37",date:"labka_blood_parameters",name:"MG",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of magnesium in blood",purpose:"non-specific indicator of general health of the patient",encoding:"None"}},
+{feature: {id:"38",date:"labka_blood_parameters",name:"GLUF",values:"positive number with decimals or <0.11",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of glukose in blood fasting",purpose:"Indicator of comorbidities incl. Diabetes, during infection stress response can induce higher glukose levels.",encoding:"None"}},
+{feature: {id:"39",date:"labka_blood_parameters",name:"LDL",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of LDL cholesterol in blood",purpose:"illustrator of lipid levels in blood",encoding:"None"}},
+{feature: {id:"40",date:"labka_blood_parameters",name:"HDL",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of HDL cholesterol in blood",purpose:"illustrator of lipid levels in blood",encoding:"None"}},
+{feature: {id:"41",date:"labka_blood_parameters",name:"CHOL",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of cholesterol in blood",purpose:"illustrator of lipid levels in blood",encoding:"None"}},
+{feature: {id:"42",date:"labka_blood_parameters",name:"TRIG",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of trigyceride in blood",purpose:"illustrator of lipid levels in blood",encoding:"None"}},
+{feature: {id:"43",date:"labka_blood_parameters",name:"ALB",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"g/L",definition:"concentration of albumin in blood",purpose:"illustrator of liver function",encoding:"None"}},
+{feature: {id:"44",date:"labka_blood_parameters",name:"LDH",values:"positive number with decimals or <10",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"U/L",definition:"concentration of Lactate dehydrogenase in blood",purpose:"illustrator of liver function",encoding:"None"}},
+{feature: {id:"45",date:"labka_blood_parameters",name:"ALAT",values:"positive number with decimals or <5",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"U/L",definition:"concentration of Alanintransaminase in blood",purpose:"illustrator of liver function",encoding:"None"}},
+{feature: {id:"46",date:"labka_blood_parameters",name:"GGT",values:"positive number with decimals or <3",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"U/L",definition:"concentration of gamma-Glutamyltransferase in blood",purpose:"illustrator of liver function",encoding:"None"}},
+{feature: {id:"47",date:"labka_blood_parameters",name:"TSH",values:"positive number with decimals or <0.01",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"× 103 IU/L",definition:"concentration of Thyrotropin in blood",purpose:"indicator of endeocrine disfunction",encoding:"None"}},
+{feature: {id:"48",date:"labka_blood_parameters",name:"HBA1C",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/mol",definition:"fraction of haemoglobin A with glucose irreversible attached ",purpose:"indicator of endeocrine disfunction",encoding:"None"}},
+{feature: {id:"49",date:"labka_blood_parameters",name:"INR",values:"positive number with decimals or <0.9 or >4.5",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"no unit",definition:"coagulation factor II + VII + X",purpose:"indicator of coagulation function",encoding:"None"}},
+{feature: {id:"50",date:"labka_blood_parameters",name:"APTT",values:"positive number with decimals or <20 or >240",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"s",definition:"P-coagulation, surface induced",purpose:"indicator of coagulation function",encoding:"None"}},
+{feature: {id:"51",date:"labka_blood_parameters",name:"sampling_date_time",values:"date and time, format: DD-MM-YYYY HH24:MI:SS",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"date sample was requested in Labka",purpose:"This info is used to combine the datasets so relevant blood values are mapped to the relevant blood culturing sample",encoding:"None"}},
+{feature: {id:"52",date:"labka_blood_parameters",name:"date_answered",values:"date and time, format: DD-MM-YYYY HH24:MI:SS",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"date sample was answered in labka",purpose:"This info is used to combine the datasets so relevant blood values are mapped to the relevant blood culturing sample",encoding:"None"}},
+{feature: {id:"53",date:"labka_blood_parameters",name:"Requestercode",values:"text, example, 2124C1(RH), similar code as MADS_data:sender",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Department who requested the sampling",purpose:"Risk of BSI could be associated to department of admission",encoding:"encoded"}},
+]}},
+{subset: {
+id:"4",
+name:"labka_blood_parameters_poct",
+updated:"None",
+modality:"TABULAR",
+format:"CSV",
+size:"None",
+featureCount:"10",
+parentid:"0",
+covmat:"None",
+modsys:"None",
+purpose:"The clinical blood values are important for the prediction of BSI. The POCT are requested alone or in combination with analyses in subset 3",
+link:"",
+features:[
+{feature: {id:"54",date:"labka_blood_parameters_poct",name:"HBPOC",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"haemoglobin concentration in blood",purpose:"indicator of bonemarrow function and chronic disease",encoding:"None"}},
+{feature: {id:"55",date:"labka_blood_parameters_poct",name:"KPOC",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of kalium in blood",purpose:"indicator of kidneyfunction and infection",encoding:"None"}},
+{feature: {id:"56",date:"labka_blood_parameters",name:"HSCRP",values:"HSCRP - high sensitive CRP (feature 15) is a more sensitive measurement in the low range of CRP, positive number with decimals <0.30 or >20. Either CRP or HSCRP should have been measured at any given time, never both.",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mg/L",definition:"concentration of CRP in blood",purpose:"central indicator of immune response",encoding:"None"}},
+{feature: {id:"57",date:"labka_blood_parameters_poct",name:"CLPOC",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of chloride in blood",purpose:"indicator of systemic inflammation",encoding:"None"}},
+{feature: {id:"58",date:"labka_blood_parameters_poct",name:"CAIPOC",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of ionized calcium",purpose:"indicator of systemic inflammation",encoding:"None"}},
+{feature: {id:"59",date:"labka_blood_parameters_poct",name:"NAPOC",values:"positive number with decimals",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not recorded",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of natrium in blood",purpose:"indicator of kidneyfunction and infection",encoding:"None"}},
+{feature: {id:"60",date:"labka_blood_parameters_poct",name:"GLUPOC",values:"positive number with decimals or <0.11",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"mmol/L",definition:"concentration of glukose in blood",purpose:"indicator of general health",encoding:"None"}},
+{feature: {id:"61",date:"labka_blood_parameters_poct",name:"sampling_date_time",values:"date and time, format: DD-MM-YYYY HH24:MI:SS",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"date sample was requested in Labka",purpose:"This info is used to combine the datasets so relevant blood values are mapped to the relevant blood culturing sample",encoding:"None"}},
+{feature: {id:"62",date:"labka_blood_parameters_poct",name:"date_answered",values:"date and time, format: DD-MM-YYYY HH24:MI:SS",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"date sample was answered in labka",purpose:"This info is used to combine the datasets so relevant blood values are mapped to the relevant blood culturing sample",encoding:"None"}},
+{feature: {id:"63",date:"labka_blood_parameters_poct",name:"Requestercode",values:"text, example, 2124C1(RH), similar code as MADS_data:sender (feature 4) and requestercode (feature 53)",meaningNaNullNone:"No NA, NULL, or NONE",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Department who requested the sampling",purpose:"Risk of BSI could be associated to department of admission",encoding:"encoded"}},
+]}},
+] })
 
         document.getElementById("emptyHandle").innerHTML += filledHandle;
-    </script>
-    <script src="./js/collapse.js">
-    </script>
-</body>
-
+  </script>
+  <script src="./js/collapse.js">
+  </script>
+ </body>
 </html>
