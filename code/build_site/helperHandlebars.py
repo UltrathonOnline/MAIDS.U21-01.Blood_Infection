@@ -247,10 +247,10 @@ def getHTML(xml, checkname = None):
 
 def getFIGURES(xml):
     xmldict = parseXML(xml, "ABOUT")
-    if not xmldict['figures']['answer']: return ([])
-    figures = [figDict['filename'] for figName, figDict in xmldict['figures']['answer'].items()]
+    figures = [xmldict['thematic']['filename']]
     figures.append(xmldict['subsetAssociations']['filename'])
-    figures.append(xmldict['thematic']['filename'])
+    if xmldict['figures']['answer']:
+        figures += [figDict['filename'] for figName, figDict in xmldict['figures']['answer'].items()]
     return (figures)
 
 # WRITE HTML HANDLEBARS OBJECT
