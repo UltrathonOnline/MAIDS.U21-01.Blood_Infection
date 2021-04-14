@@ -156,6 +156,8 @@ def formatHTML_DEFINITION(xmlDict):
     '''
     definitions = ""
     keywords = xmlDict['Keywords_Dataset']
+    if not keywords or len(keywords) == 0:
+        return (definitions)
     i = 0
     for kwid in keywords.keys():
         i += 1
@@ -198,8 +200,9 @@ def formatHTML_ABOUT(xmlDict):
     
     #Format figures
     figures = ""
-    for figure in xmlDict["figures"]["answer"].values():
-        figures += getTemplate("figure").format(FILENAME = figure["filename"], TITLE = figure["title"], LEGEND = figure["legend"])
+    if xmlDict["figures"]["answer"]:
+        for figure in xmlDict["figures"]["answer"].values():
+            figures += getTemplate("figure").format(FILENAME = figure["filename"], TITLE = figure["title"], LEGEND = figure["legend"])
 
     #Handle EMPTY thematic
     # if (not xmlDict["thematic"]["filename"]):
@@ -244,6 +247,7 @@ def getHTML(xml, checkname = None):
 
 def getFIGURES(xml):
     xmldict = parseXML(xml, "ABOUT")
+    if not xmldict['figures']['answer']: return ([])
     figures = [figDict['filename'] for figName, figDict in xmldict['figures']['answer'].items()]
     figures.append(xmldict['subsetAssociations']['filename'])
     figures.append(xmldict['thematic']['filename'])
