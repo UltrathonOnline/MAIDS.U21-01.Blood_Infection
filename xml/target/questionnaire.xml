@@ -17,7 +17,7 @@
                 <M3 />
             </messages>
             <answers>
-                <A0>The present dataset was created for machine learning in order to improve the prediction of bloodstream infections. The dataset combines clinical blood parameters, age, sex as well as previous admissions to blood culturing results (negative and positive) and resistance profile of the infecting pathogen over a period of more than 10 years. </A0>
+                <A0>The present dataset was created for machine learning in order to improve the prediction of bloodstream infections. The dataset combines clinical blood parameters, age, sex as well as previous admissions to blood culturing results (negative and positive) over a period of more than 10 years.</A0>
                 <A1>Dept. of Clinical Microbiology, Rigshospitalet created the dataset In collaboration with dept. of clinical Biochemistry,  Rigshospitalet </A1>
                 <A2 />
                 <A3>Name of person(s) answering questions: Karen Leth Nielsen Karen.leth.nielsen.01@regionh.dk; Frederik Bo&#235;tius Hertz Frederik.boetius.hertz@regionh.dk; Karen Leth Nielsen Karen.Leth.Nielsen.01@regionh.dk </A3>
